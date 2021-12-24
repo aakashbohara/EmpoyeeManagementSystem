@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New Employee</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+</head>
+<body>
+
+
+
+	
+
+	<div class="container">
+	<h2>Add New Employee</h2>
+	<hr>
+	
+
+		<form action="" th:action="@{/saveEmployee}" th:object="${employee}"
+			method="post">
+
+			<div class="form-group">
+				<input type="text" name="name" placeholder="name" class="form-control" th:field = "*{name}" required="required"/>
+			</div><hr/>
+			<div class="form-group">
+				<input type="email" name="email" placeholder="email" class="form-control" th:field = "*{email}"/ aria-describedby="emailHelp" required="required">
+				<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<input type="text" name="department" placeholder="department" class="form-control" th:field = "*{department}" required="required"/>
+			</div>
+			<hr/>
+			<button type="submit" class="btn btn-success btn-lg">Save</button>
+			
+			<input type="hidden" th:field = "*{id}" />
+
+		</form>
+		<hr>
+		<a th:href = "@{/list}" type="button" class = "btn btn-danger btn-lg">Back To List</a>
+
+	</div>
+
+
+
+
+</body>
+</html>
